@@ -1,0 +1,270 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* ============================================ */
+/*                     .HEAD                    */
+/* ============================================ */
+.head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.408);
+  padding: 2rem 1rem;
+}
+
+// .head-logo
+.head-logo {
+  min-width: 120px;
+  min-height: 20px;
+}
+
+// .head-menu
+.head-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: auto;
+  //   background: red;
+
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #a0a2a8;
+    font-weight: 700;
+    position: relative;
+    height: 100%;
+
+    &:hover {
+      color: #60646f;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 5px;
+      background: orangered;
+      top: calc(130% + 2rem);
+      transition: 0.4s all ease;
+    }
+  }
+}
+
+// .head-info
+.head-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  .info-cart {
+    min-width: 20px;
+    min-height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .info-avatar {
+    cursor: pointer;
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid orange;
+    border-radius: 100rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .info-shop,
+  .info-user {
+    display: none;
+  }
+}
+
+/* ============================================ */
+/*                     .MAIN                    */
+/* ============================================ */
+.main {
+  width: 90%;
+  padding: 4rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7rem;
+}
+
+// .main-img
+.main-img {
+  width: 50%;
+
+  .big-img {
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+
+  .thumnail-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem 0;
+    width: 100%;
+
+    img {
+      border-radius: 10px;
+      width: calc(25% - 1rem);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+// .main-info
+.main-info {
+  width: 50%;
+  padding-top: 2rem;
+
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  // 1
+  .info-text {
+    h2 {
+      color: orangered;
+      line-height: 2.5;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    p {
+      padding: 1rem 0;
+      line-height: 1.5;
+      color: #60646f;
+      font-weight: 400;
+    }
+  }
+
+  //   2
+  .info-price {
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .sale {
+      color: orangered;
+      padding: 0.3rem;
+      font-weight: 700;
+      border-radius: 5px;
+      background: #f9f0e9;
+
+      position: relative;
+      top: -8px;
+      margin-left: 0.8rem;
+    }
+
+    .price-origin {
+      display: block;
+      color: #60646f;
+      font-weight: 700;
+    }
+  }
+
+  //   3
+  .info-buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    .buy-value {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      width: 40%;
+
+      div {
+        width: 33%;
+        height: 40px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+
+        text-align: center;
+        background: #f7f8fd;
+      }
+
+      .plus:hover,
+      .minus:hover {
+        cursor: pointer;
+        background: #a0a2a8;
+      }
+    }
+
+    .buy-add {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      width: 60%;
+      height: 100%;
+      border-radius: 10px;
+      background: #ffac6a;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
