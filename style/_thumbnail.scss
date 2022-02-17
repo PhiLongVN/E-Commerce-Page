@@ -1,0 +1,90 @@
+/* ============================================ */
+/*                 .IMAGE-CLICK                 */
+/* ============================================ */
+
+.image-click {
+  width: 100vw;
+  min-height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------------- .CLICK-MAIN --------------- */
+.click-main {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .click-next,
+  .click-pre {
+    min-width: 50px;
+    min-height: 50px;
+    background: white;
+    border-radius: 100rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover img {
+      filter: invert(58%) sepia(39%) saturate(2299%) hue-rotate(345deg)
+        brightness(97%) contrast(92%);
+    }
+  }
+
+  .click-next {
+    transform: translateX(50%);
+  }
+
+  .click-pre {
+    transform: translateX(-50%);
+  }
+
+  .click-big {
+    border-radius: 10px;
+  }
+}
+
+/* --------------- .CLICK-CLOSE --------------- */
+.click-close {
+  //   background: red;
+  width: 50%;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-end;
+
+  .close:hover {
+    filter: invert(58%) sepia(39%) saturate(2299%) hue-rotate(345deg)
+      brightness(97%) contrast(92%);
+  }
+}
+
+.click-thumbnail {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    cursor: pointer;
+    border-radius: 10px;
+    width: calc(25% - 1rem);
+
+    &:hover {
+      border: 3px orangered solid;
+    }
+  }
+}
