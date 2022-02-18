@@ -101,6 +101,7 @@ body {
   gap: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.408);
   padding: 2rem 1rem;
+  position: relative;
 }
 
 .head-toggle {
@@ -170,10 +171,28 @@ body {
   min-width: 20px;
   min-height: 20px;
   cursor: pointer;
+  position: relative;
 }
 
 .head-info .info-cart:hover {
   opacity: 0.8;
+}
+
+.head-info .info-cart .cart-value {
+  padding: 0.1rem 0.5rem;
+  background: orangered;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+}
+
+.head-info .info-cart .cart-value.active {
+  display: block;
 }
 
 .head-info .info-avatar {
@@ -190,7 +209,95 @@ body {
   opacity: 0.8;
 }
 
-.head-info .info-shop,
+.head-info .info-shop {
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  min-width: 200px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.head-info .info-shop.active {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  visibility: visible;
+}
+
+.head-info .info-shop h3 {
+  font-weight: 700;
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.head-info .info-shop .order {
+  text-align: center;
+  padding: 1rem;
+  color: #60646f;
+  width: 100%;
+  font-weight: 700;
+}
+
+.head-info .info-shop .order .info-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.head-info .info-shop .order .info-product .order-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.head-info .info-shop .order .info-product .order-detail {
+  text-align: left;
+  font-weight: 400;
+}
+
+.head-info .info-shop .order .info-product .trash-btn {
+  cursor: pointer;
+}
+
+.head-info .info-shop .order .info-product .trash-btn:hover {
+  -webkit-filter: invert(58%) sepia(39%) saturate(2299%) hue-rotate(345deg) brightness(97%) contrast(92%);
+          filter: invert(58%) sepia(39%) saturate(2299%) hue-rotate(345deg) brightness(97%) contrast(92%);
+}
+
+.head-info .info-shop .order .checkout {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: orangered;
+  font-weight: 700;
+  color: white;
+  margin-top: 1rem;
+}
+
+.head-info .info-shop .order .checkout:hover {
+  background: #e4541f;
+  cursor: pointer;
+}
+
 .head-info .info-user {
   display: none;
 }
@@ -350,6 +457,7 @@ body {
           align-items: center;
   gap: 0.5rem;
   width: 40%;
+  font-weight: 700;
 }
 
 .main-info .info-buy .buy-value div {
@@ -366,13 +474,17 @@ body {
           align-items: center;
   border-radius: 10px;
   text-align: center;
-  background: #f7f8fd;
+  background: #e3e4eb;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .main-info .info-buy .buy-value .plus:hover,
 .main-info .info-buy .buy-value .minus:hover {
   cursor: pointer;
-  background: #a0a2a8;
+  background: #a0a2a8a7;
 }
 
 .main-info .info-buy .buy-add {
@@ -549,6 +661,10 @@ body {
     max-height: 500px;
     position: relative;
     cursor: auto;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
   .main-img .big-img .big {
     -o-object-fit: cover;
@@ -556,6 +672,7 @@ body {
     width: 100%;
     max-height: 500px;
     border-radius: 0px;
+    pointer-events: none;
   }
   .main-img .big-img .move-bt {
     display: block;
@@ -657,13 +774,15 @@ body {
 .image-click {
   width: 100vw;
   min-height: 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -675,6 +794,12 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
+}
+
+.image-click.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* ---------------- .CLICK-MAIN --------------- */

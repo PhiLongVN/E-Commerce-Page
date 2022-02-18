@@ -53,7 +53,8 @@
         <!-- ----------------- INFO ------------------ -->
         <div class="head-info">
           <div class="info-cart">
-            <img src="./images/icon-cart.svg" alt="" />
+            <img class="cart-img" src="./images/icon-cart.svg" alt="" />
+            <span class="cart-value">0</span>
           </div>
 
           <div class="info-avatar">
@@ -62,8 +63,35 @@
 
           <div class="info-shop">
             <h3>Cart</h3>
-            <div class="order">Your cart is empty</div>
+            <!-- <div class="order">Your cart is empty</div> -->
+            <div class="order">
+              <!-- 1 -->
+              <div class="info-product">
+                <img
+                  class="order-img"
+                  src="./images/image-product-1-thumbnail.jpg"
+                  alt=""
+                />
+
+                <div class="order-detail">
+                  <span class="detail-name">fall limited edtin sneakers</span>
+                  <div class="detail-value">
+                    <span>$125.00</span>
+                    <span class="buy-value">x 3</span>
+                    <strong>$375.00</strong>
+                  </div>
+                </div>
+
+                <div class="trash-btn">
+                  <img src="./images/icon-delete.svg" alt="" />
+                </div>
+              </div>
+              
+              <!-- 2 -->
+              <button class="checkout">Checkout</button>
+            </div>
           </div>
+
           <div class="info-user">
             <span>Logan Paul</span>
             <span>USA</span>
@@ -81,7 +109,12 @@
         <div class="main-img">
           <div class="big-img">
             <img class="move-bt next" src="./images/icon-next.svg" alt="" />
-            <img class="big" src="./images/image-product-1.jpg" alt="" />
+            <img
+              class="big"
+              data-index="1"
+              src="./images/image-product-1.jpg"
+              alt=""
+            />
             <img class="move-bt pre" src="./images/icon-previous.svg" alt="" />
           </div>
 
@@ -161,7 +194,12 @@
           <div class="click-next">
             <img src="./images/icon-previous.svg" alt="" />
           </div>
-          <img class="click-big" src="./images/image-product-1.jpg" alt="" />
+          <img
+            class="click-big"
+            data-index="1"
+            src="./images/image-product-1.jpg"
+            alt=""
+          />
 
           <div class="click-pre">
             <img src="./images/icon-next.svg" alt="" />

@@ -5,17 +5,22 @@
 .image-click {
   width: 100vw;
   min-height: 100vh;
+  user-select: none;
 
   position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+
+  &.active {
+    display: flex;
+  }
 }
 
 /* ---------------- .CLICK-MAIN --------------- */
@@ -58,7 +63,6 @@
 
 /* --------------- .CLICK-CLOSE --------------- */
 .click-close {
-  //   background: red;
   width: 50%;
   cursor: pointer;
 

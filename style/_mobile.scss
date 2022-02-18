@@ -141,12 +141,14 @@
       max-height: 500px;
       position: relative;
       cursor: auto;
+      user-select: none;
 
       .big {
         object-fit: cover;
         width: 100%;
         max-height: 500px;
         border-radius: 0px;
+        pointer-events: none;
       }
 
       .move-bt {
