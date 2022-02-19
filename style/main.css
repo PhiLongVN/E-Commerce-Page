@@ -213,7 +213,8 @@ body {
   position: absolute;
   top: 110%;
   right: 1%;
-  min-width: 200px;
+  margin-left: 0.2rem;
+  min-width: 260px;
   background: white;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
@@ -244,10 +245,18 @@ body {
 
 .head-info .info-shop .order {
   text-align: center;
-  padding: 1rem;
   color: #60646f;
+  padding: 1rem;
   width: 100%;
   font-weight: 700;
+}
+
+.head-info .info-shop .order .empty-product {
+  padding: 3rem;
+}
+
+.head-info .info-shop .order .empty-product.hidden {
+  display: none;
 }
 
 .head-info .info-shop .order .info-product {

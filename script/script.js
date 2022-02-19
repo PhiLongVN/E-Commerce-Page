@@ -163,21 +163,46 @@ cartImg.onclick = () => {
 
 const addBtn = document.querySelector(".buy-add");
 const cartValue = document.querySelector(".cart-value");
-const buyValue = document.querySelector(".buy-value");
-const order = document.querySelector(".order");
+const order = document.querySelector(".order-wrapper");
+console.log("order", order);
 
-addBtn.addEventListener("click", handleAdd);
+const empty = document.querySelector(".empty-product");
 
-function handleAdd() {
-  let value2 = value.innerText;
+const infoProduct = document.querySelector(".info-product");
+const checkout = document.querySelector(".checkout");
 
-  if (value2 > 0) {
-    // add number o ngoai
-    cartValue.innerHTML = value2;
+let ProductNumber = 0;
+
+addBtn.addEventListener("click", AddProduct);
+
+// add
+function AddProduct() {
+  ProductNumber = parseInt(value.innerText);
+
+  updateCart();
+}
+
+function updateCart() {
+  showNumber();
+  showProduct();
+}
+
+function showNumber() {
+  if (ProductNumber > 0) {
+    cartValue.innerHTML = ProductNumber;
     cartValue.classList.add("active");
+  } else {
+    cartValue.classList.remove("active");
+  }
+}
 
-    // add ben trong
-    order.innerHTML = `    <div class="info-product">
+function showProduct() {
+  let price = 125;
+
+  console.log("showProduct -> ProductNumber", ProductNumber);
+  if (ProductNumber > 0) {
+    empty.classList.add("hidden");
+    order.innerHTML = ` <div class="info-product">
                 <img
                   class="order-img"
                   src="./images/image-product-1-thumbnail.jpg"
@@ -187,9 +212,9 @@ function handleAdd() {
                 <div class="order-detail">
                   <span class="detail-name">fall limited edtin sneakers</span>
                   <div class="detail-value">
-                    <span>$125.00 x </span>
-                    <span class="buy-value">${value2}</span>
-                    <strong>$${value2*125}.00</strong>
+                    <span>$${price}.00</span>
+                    <span class="buy-value">${ProductNumber}</span>
+                    <strong>$${(ProductNumber * price).toFixed(2)}</strong>
                   </div>
                 </div>
 
@@ -201,46 +226,7 @@ function handleAdd() {
               <!-- 2 -->
               <button class="checkout">Checkout</button>`;
   } else {
-    order.innerHTML = `Your cart is empty`;
-    cartValue.classList.remove("active");
+    order.innerHTML = "";
+    empty.classList.remove("hidden");
   }
-}
-
-/* ------------------ DELETE ------------------ */
-const trash = document.querySelector(".trash-btn");
-
-trash.addEventListener("click", handleDelete);
-
-function handleDelete() {
-  console.log("trash", trash);
-  let value2 = parseInt(buyValue.innerText);
-  value2--;
-
-  // if (value2 < 1) {
-  //   order.innerHTML = `Your cart is empty`;
-  // } else {
-  //   order.innerHTML = `    <div class="info-product">
-  //               <img
-  //                 class="order-img"
-  //                 src="./images/image-product-1-thumbnail.jpg"
-  //                 alt=""
-  //               />
-
-  //               <div class="order-detail">
-  //                 <span class="detail-name">fall limited edtin sneakers</span>
-  //                 <div class="detail-value">
-  //                   <span>$125.00 x </span>
-  //                   <span class="buy-value">${value2}</span>
-  //                   <strong>$375.00</strong>
-  //                 </div>
-  //               </div>
-
-  //               <div class="trash-btn">
-  //                 <img src="./images/icon-delete.svg" alt="" />
-  //               </div>
-  //             </div>
-
-  //             <!-- 2 -->
-  //             <button class="checkout">Checkout</button>`;
-  // }
 }

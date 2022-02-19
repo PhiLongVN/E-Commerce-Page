@@ -130,12 +130,11 @@ body {
 
   // 3
   .info-shop {
-    // display: none;
     position: absolute;
     top: 110%;
     right: 1%;
-    // width: 30%;
-    min-width: 200px;
+    margin-left: 0.2rem;
+    min-width: 260px;
 
     background: white;
     border-radius: 10px;
@@ -164,12 +163,19 @@ body {
 
     .order {
       text-align: center;
-      padding: 1rem;
       color: #60646f;
+      padding: 1rem;
 
-      // padding: 4rem 0;
       width: 100%;
       font-weight: 700;
+
+      .empty-product {
+        padding: 3rem;
+
+        &.hidden {
+          display: none;
+        }
+      }
 
       .info-product {
         display: flex;
