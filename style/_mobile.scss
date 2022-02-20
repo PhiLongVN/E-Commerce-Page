@@ -19,8 +19,6 @@
 
     &.active > .head-menu {
       left: 0%;
-      z-index: 1000;
-      opacity: 1;
     }
 
     &.active::before {
@@ -86,7 +84,7 @@
 
     padding-left: 2rem;
     background: white;
-    opacity: 0;
+    z-index: 20;
 
     a {
       color: #131313;

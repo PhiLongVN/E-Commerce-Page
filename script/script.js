@@ -20,10 +20,8 @@ const next = document.querySelector(".click-pre");
 /* ============================================ */
 toggle.onclick = () => {
   head.classList.toggle("active");
-};
-
-window.onscroll = () => {
-  head.classList.remove("active");
+  infoShop.classList.remove("active");
+  infoUser.classList.remove("active");
 };
 
 /* ============================================ */
@@ -78,6 +76,8 @@ preMobile.onclick = () => {
 // click
 
 bigImg.onclick = () => {
+  infoShop.classList.remove("active");
+  infoUser.classList.remove("active");
   clickImg.classList.add("active");
 };
 clickClose.onclick = () => {
@@ -154,9 +154,23 @@ minus.onclick = () => {
 
 const cartImg = document.querySelector(".cart-img");
 const infoShop = document.querySelector(".info-shop");
+const infoUser = document.querySelector(".info-user");
+const infoAvatar = document.querySelector(".info-avatar");
 
 cartImg.onclick = () => {
   infoShop.classList.toggle("active");
+  infoUser.classList.remove("active");
+};
+
+infoAvatar.onclick = () => {
+  infoUser.classList.toggle("active");
+  infoShop.classList.remove("active");
+};
+
+window.onscroll = () => {
+  infoShop.classList.remove("active");
+  infoUser.classList.remove("active");
+  head.classList.remove("active");
 };
 
 /* ------------------ // ADD ------------------ */
@@ -164,18 +178,17 @@ cartImg.onclick = () => {
 const addBtn = document.querySelector(".buy-add");
 const cartValue = document.querySelector(".cart-value");
 const order = document.querySelector(".order-wrapper");
-console.log("order", order);
 
 const empty = document.querySelector(".empty-product");
 
 const infoProduct = document.querySelector(".info-product");
 const checkout = document.querySelector(".checkout");
 
+// add
 let ProductNumber = 0;
 
 addBtn.addEventListener("click", AddProduct);
 
-// add
 function AddProduct() {
   ProductNumber = parseInt(value.innerText);
 
@@ -199,7 +212,6 @@ function showNumber() {
 function showProduct() {
   let price = 125;
 
-  console.log("showProduct -> ProductNumber", ProductNumber);
   if (ProductNumber > 0) {
     empty.classList.add("hidden");
     order.innerHTML = ` <div class="info-product">
@@ -225,8 +237,18 @@ function showProduct() {
               
               <!-- 2 -->
               <button class="checkout">Checkout</button>`;
+
+    const deleteBtn = document.querySelector(".trash-btn");
+    deleteBtn.addEventListener("click", deleteItem);
   } else {
     order.innerHTML = "";
     empty.classList.remove("hidden");
   }
+}
+
+// delete
+function deleteItem() {
+  ProductNumber--;
+
+  updateCart();
 }
